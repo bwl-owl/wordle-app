@@ -21,7 +21,6 @@ function showAnswer() {
   answerElement.textContent = `Answer: ${answer}`;
   answerElement.href = `https://www.merriam-webster.com/dictionary/${answer}`;
   answerElement.target = "_blank";
-  giveUps++;
   // prevent user from attempting once answer is shown
   currentRow = N_ROWS + 1;
 }
