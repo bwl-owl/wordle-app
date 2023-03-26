@@ -5,6 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="words.js"></script>
     <script src="script.js" defer></script>
+    <!-- https://getbootstrap.com/docs/5.0/getting-started/download/#cdn-via-jsdelivr -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="styles.css" />
     <title>Wordle</title>
   </head>
@@ -12,10 +24,17 @@
     <header>
       <div>
         <button onClick="switchTheme()">🌚</button>
-        <button onClick="showStats()">📊</button>
+        <button
+          onClick="populateStats()"
+          data-bs-toggle="modal"
+          data-bs-target="#stats-modal"
+        >
+          📊
+        </button>
       </div>
       <h1>Wordle</h1>
       <div>
+        <button data-bs-toggle="modal" data-bs-target="#help-modal">❓</button>
         <button id="give-up" onClick="giveUp()">🤷‍♀️</button>
         <button onClick="restart()">🔃</button>
       </div>
@@ -25,5 +44,67 @@
       <p><a id="answer"></a></p>
       <div id="keyboard"></div>
     </main>
+    <!-- https://getbootstrap.com/docs/5.0/components/modal/ -->
+    <div
+      class="modal fade"
+      id="help-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="help-modal-heading"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="help-modal-heading">How to play</h2>
+            <button data-bs-dismiss="modal" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <ol>
+              <li>
+                Using either your physical keyboard or the on-screen virtual
+                keyboard, enter a five-letter word attempt and press Enter
+              </li>
+              <li>
+                The character boxes will change colour according to the below
+                rules:
+              </li>
+              Character in the correct position:
+              <div class="character correct">X</div>
+              Character present in the answer but in the wrong position:
+              <div class="character present">X</div>
+              Character not at all present in the answer:
+              <div class="character absent">X</div>
+              <li>
+                Using this feedback, try guess the answer before your attempts
+                run out!
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="stats-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="stats-modal-heading"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 id="stats-modal-heading">Your gameplay stats</h2>
+            <button data-bs-dismiss="modal" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="stats-modal-body" class="modal-body"></div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

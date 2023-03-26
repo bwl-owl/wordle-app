@@ -4,9 +4,19 @@ body {
 }
 
 header {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  justify-content: space-between;
+  justify-items: center;
+  margin: 10px;
+}
+
+header > :first-child {
+  justify-self: start;
+}
+
+header > :last-child {
+  justify-self: end;
 }
 
 .container {
@@ -19,14 +29,26 @@ header {
   grid-template-rows: repeat(6, 1fr);
   column-gap: 1%;
   row-gap: 1%;
-  width: 22%;
+  width: 25%;
   margin: auto;
   margin-bottom: 4%;
 }
 
+@media (max-width: 1024px) {
+  #guesses {
+    width: 40%;
+  }
+}
+
 @media (max-width: 768px) {
   #guesses {
-    width: 30%;
+    width: 50%;
+  }
+}
+
+@media (max-width: 425px) {
+  #guesses {
+    width: 70%;
   }
 }
 
@@ -42,8 +64,6 @@ header {
 
   border: 1.5px rgb(137, 207, 240) solid;
   border-radius: 10%;
-
-  font-size: 5vmin;
 }
 
 #keyboard {
@@ -54,7 +74,18 @@ header {
 
 .key {
   margin: 2px;
-  font-size: 4vmin;
+}
+
+@media (max-width: 768px) {
+  .key {
+    font-size: 3vw;
+  }
+}
+
+@media (max-width: 425px) {
+  .key {
+    font-size: 5vw;
+  }
 }
 
 .correct {
@@ -72,10 +103,20 @@ header {
 button {
   font-family: inherit;
   font-weight: inherit;
+  font-size: 1.5vw;
+
   border: none;
-  padding: 10px;
+  padding: 6px;
   border-radius: 10%;
   background-color: rgb(192, 230, 249);
+}
+
+.modal .character {
+  width: 8%;
+}
+
+.modal {
+  font-size: small;
 }
 
 body.darkmode {
@@ -83,7 +124,9 @@ body.darkmode {
 }
 
 .darkmode h1,
-.darkmode p {
+.darkmode h2,
+.darkmode p,
+.darkmode ol {
   color: white;
 }
 
@@ -106,4 +149,8 @@ body.darkmode {
 
 .darkmode .absent {
   background-color: rgb(52, 64, 66);
+}
+
+.darkmode .modal-content {
+  background-color: rgb(4, 9, 39);
 }
