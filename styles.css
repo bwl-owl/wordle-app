@@ -1,0 +1,118 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+header {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: center;
+  justify-items: center;
+}
+
+header > :first-child {
+  justify-self: start;
+}
+
+header > :last-child {
+  justify-self: end;
+}
+
+.container {
+  text-align: center;
+}
+
+#guesses {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  column-gap: 1%;
+  row-gap: 1%;
+  width: 25%;
+  margin: auto;
+  margin-bottom: 4%;
+}
+
+@media (max-width: 768px) {
+  #guesses {
+    width: 30%;
+  }
+}
+
+.character {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+  width: 90%;
+  min-width: 0;
+  aspect-ratio: 1/1;
+
+  border: 1.5px rgb(137, 207, 240) solid;
+  border-radius: 10%;
+
+  font-size: 5vmin;
+}
+
+#keyboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.key {
+  margin: 2px;
+  font-size: 4vmin;
+}
+
+.correct {
+  background-color: rgb(165, 229, 203);
+}
+
+.present {
+  background-color: rgb(179, 186, 236);
+}
+
+.absent {
+  background-color: rgb(203, 211, 212);
+}
+
+button {
+  font-family: inherit;
+  font-weight: inherit;
+  border: none;
+  padding: 10px;
+  border-radius: 10%;
+  background-color: rgb(165, 221, 248);
+}
+
+body.darkmode {
+  background-color: black;
+}
+
+.darkmode h1,
+.darkmode p {
+  color: white;
+}
+
+.darkmode a {
+  color: rgb(162, 212, 243);
+}
+
+.darkmode .character {
+  border: 2px white solid;
+  color: white;
+}
+
+.darkmode .correct {
+  background-color: rgb(22, 139, 111);
+}
+
+.darkmode .present {
+  background-color: rgb(61, 73, 168);
+}
+
+.darkmode .absent {
+  background-color: rgb(52, 64, 66);
+}
