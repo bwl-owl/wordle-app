@@ -199,10 +199,10 @@ function restart() {
   currentCol = 1;
 
   // clear data from previous round
-  document.querySelectorAll(".character, .key").forEach((element) => {
+  document.querySelectorAll("#guesses .character, .key").forEach((element) => {
     element.classList.remove("correct", "present", "absent");
   });
-  document.querySelectorAll(".character").forEach((element) => {
+  document.querySelectorAll("#guesses .character").forEach((element) => {
     element.textContent = "";
   });
   document.getElementById("answer").textContent = "";
