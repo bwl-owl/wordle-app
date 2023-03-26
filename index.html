@@ -10,11 +10,15 @@
   </head>
   <body>
     <header>
-      <button onClick="switchTheme()">🌚</button>
-      <button onClick="showStats()">📊</button>
+      <div>
+        <button onClick="switchTheme()">🌚</button>
+        <button onClick="showStats()">📊</button>
+      </div>
       <h1>Wordle</h1>
-      <button onClick="showAnswer()">🤷</button>
-      <button onClick="restart()">🔃</button>
+      <div>
+        <button onClick="giveUp()">🤷‍♀️</button>
+        <button onClick="restart()">🔃</button>
+      </div>
     </header>
     <main class="container">
       <div id="guesses"></div>

@@ -169,5 +169,5 @@ function switchTheme() {
 }
 
 function showStats() {
-  alert(`🥇: ${wins}\n💀: ${losses}\n🤷: ${giveUps} `);
+  alert(`🥇: ${wins}\n💀: ${losses}\n🤷‍♀️: ${giveUps} `);
 }
