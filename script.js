@@ -3,6 +3,7 @@ TODO
 - animations
 - better stats (streaks, % wins, etc.)
 - more themes
+- tests?
 */
 
 // some constants to make life easier
@@ -83,16 +84,32 @@ function inputCharacter(character) {
     for (let i = 1; i <= N_COLS; i++) {
       const attemptedChar = getCharElement(currentRow, i);
 
-      // helper function to add correct class to both the attempt box and the keyboard key
+      /** get corresponding keyboard key `div`
+       * @param {string} character character to get the key for
+       */
+      function getCorrespondingKeyboardKey(character) {
+        return Array.from(document.querySelectorAll("#keyboard .key")).filter(
+          (element) => element.textContent.toUpperCase() === character
+        )[0];
+      }
+
+      /** adds class to both the attempt box and the keyboard key
+       * @param {string} classToAdd the class name to add
+       */
       const addToClassList = (classToAdd) => {
         attemptedChar.classList.add(classToAdd);
-        Array.from(document.querySelectorAll("#keyboard .key"))
-          .filter(
-            (element) =>
-              element.textContent.toUpperCase() === attemptedChar.textContent
-          )[0]
-          .classList.add(classToAdd);
+        getCorrespondingKeyboardKey(attemptedChar.textContent).classList.add(
+          classToAdd
+        );
       };
+
+      // first remove any previous classes (otherwise may conflict CSS)
+      attemptedChar.classList.remove("correct", "present", "absent");
+      getCorrespondingKeyboardKey(attemptedChar.textContent).classList.remove(
+        "correct",
+        "present",
+        "absent"
+      );
 
       // add the correct class depending on whether the character is in the answer and in the correct position,
       // in the answer but incorrect position, or not in the answer at all
