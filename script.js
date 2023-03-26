@@ -21,6 +21,10 @@ function showAnswer() {
   answerElement.textContent = `Answer: ${answer}`;
   answerElement.href = `https://www.merriam-webster.com/dictionary/${answer}`;
   answerElement.target = "_blank";
+
+  // disable "give up" button so can't spam button while answer is being shown
+  document.getElementById("give-up").disabled = true;
+
   // prevent user from attempting once answer is shown
   currentRow = N_ROWS + 1;
 }
@@ -144,6 +148,10 @@ document
 
 // handling new game
 function restart() {
+  // re-enable "give up" button
+  document.getElementById("give-up").disabled = false;
+
+  // reset current box for character input and clear all prev inputs
   currentRow = 1;
   currentCol = 1;
   document.querySelectorAll(".character, .key").forEach((element) => {
@@ -153,6 +161,8 @@ function restart() {
     element.textContent = "";
   });
   document.getElementById("answer").textContent = "";
+
+  // generate new random answer
   answer = generateAnswer();
 }
 
