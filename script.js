@@ -143,9 +143,9 @@ document.addEventListener("keydown", (event) => inputCharacter(event.key));
 
 // create UI for virtual keyboard
 const keyboardKeys = [
-  ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", BACKSPACE_KEY],
+  ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p"],
   ["a", "s", "d", "f", "g", "h", "j", "k", "l", ENTER],
-  ["z", "x", "c", "v", "b", "n", "m"],
+  ["z", "x", "c", "v", "b", "n", "m", BACKSPACE_KEY],
 ];
 
 for (const row of keyboardKeys) {

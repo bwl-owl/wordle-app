@@ -6,9 +6,18 @@ body {
 header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  align-items: center;
   justify-items: center;
   margin: 10px;
+}
+
+@media (max-width: 425px) {
+  h1 {
+    font-size: 8vw;
+  }
+
+  header button {
+    font-size: 2vw;
+  }
 }
 
 header > :first-child {
@@ -103,7 +112,6 @@ header > :last-child {
 button {
   font-family: inherit;
   font-weight: inherit;
-  font-size: 1.5vw;
 
   border: none;
   padding: 6px;
