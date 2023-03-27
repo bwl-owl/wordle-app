@@ -228,3 +228,11 @@ function populateStats() {
     "stats-modal-body"
   ).innerHTML = `<p>🥇: ${wins}</p><p>💀: ${losses}</p><p>🤷‍♀️: ${giveUps}<p>`;
 }
+
+// open help modal if user's first visit to site
+if (!document.cookie.split("; ").find((row) => row.startsWith("visited"))) {
+  document.cookie =
+    "visited=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";
+
+  document.getElementById("how-to-play").click();
+}
