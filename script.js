@@ -20,7 +20,7 @@ let giveUps = 0;
 let currentRow = 1;
 let currentCol = 1;
 
-/** returns a random word from the list of potential answers (from `words.js`, loaded in `index.html`) */
+/** returns a random word from the list of potential answers (from js file containing array of valid words, loaded in `index.html`) */
 function generateAnswer() {
   return validWords[Math.floor(Math.random() * validWords.length)];
 }
